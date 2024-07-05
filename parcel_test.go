@@ -57,7 +57,7 @@ func TestAddGetDelete(t *testing.T) {
 	err = store.Delete(add)
 	require.NoError(t, err)
 	_, err = store.Get(add)
-	require.Error(t, err)
+	require.ErrorIs(t, err, sql.ErrNoRows)
 }
 
 // TestSetAddress проверяет обновление адреса
